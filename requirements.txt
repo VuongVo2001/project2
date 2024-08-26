@@ -5,3 +5,4 @@ matplotlib
 seaborn
 scikit-learn
 wordcloud==1.8.1
+pillow
