@@ -272,49 +272,6 @@ elif choice == 'Prediction by Content-based Model':
             st.write(f"Không tìm thấy khách sạn với ID: {st.session_state.selected_hotel_id}")
 
 elif choice == 'Predict by Collaborative Model':    
-    # st.header("Predict by Collaborative Model")
-
-    # # Kiểm tra xem 'selected_hotel_id' đã có trong session_state hay chưa
-    # if 'selected_hotel_id' not in st.session_state:
-    #     # Nếu chưa có, thiết lập giá trị mặc định là None hoặc ID khách sạn đầu tiên
-    #     st.session_state.selected_hotel_id = None
-
-    # # Theo cách cho người dùng chọn khách sạn từ dropdown
-    # # Tạo một tuple cho mỗi khách sạn, trong đó phần tử đầu là tên và phần tử thứ hai là ID
-    # hotel_options = [(row['Hotel_Name'], row['Hotel_ID']) for index, row in st.session_state.random_hotels.iterrows()]
-    # st.session_state.random_hotels
-    # # Tạo một dropdown với options là các tuple này
-    # selected_hotel = st.selectbox(
-    #     "Chọn khách sạn",
-    #     options=hotel_options,
-    #     format_func=lambda x: x[0]  # Hiển thị tên khách sạn
-    # )
-    # # Display the selected hotel
-    # st.write("Bạn đã chọn:", selected_hotel)
-
-    # # Cập nhật session_state dựa trên lựa chọn hiện tại
-    # st.session_state.selected_hotel_id = selected_hotel[1]
-
-    # if st.session_state.selected_hotel_id:
-    #     st.write("Hotel_ID: ", st.session_state.selected_hotel_id)
-    #     # Hiển thị thông tin khách sạn được chọn
-    #     selected_hotel = df_hotels[df_hotels['Hotel_ID'] == st.session_state.selected_hotel_id]
-
-    #     if not selected_hotel.empty:
-    #         st.write('#### Bạn vừa chọn:')
-    #         st.write('### ', selected_hotel['Hotel_Name'].values[0])
-
-    #         hotel_description = selected_hotel['Hotel_Description'].values[0]
-    #         truncated_description = ' '.join(hotel_description.split()[:100])
-    #         st.write('##### Thông tin:')
-    #         st.write(truncated_description, '...')
-
-    #         st.write('##### Các khách sạn khác bạn cũng có thể quan tâm:')
-    #         recommendations = get_surprise_recommendations(df_hotels, st.session_state.selected_hotel_id, surprise_model_new, nums=5) 
-    #         display_recommended_hotels(recommendations)
-    #     else:
-    #         st.write(f"Không tìm thấy khách sạn với ID: {st.session_state.selected_hotel_id}")
-
     st.header("Predict by Collaborative Model")
 
     # Kiểm tra xem 'selected_hotel_id' đã có trong session_state hay chưa
@@ -339,22 +296,22 @@ elif choice == 'Predict by Collaborative Model':
     # Cập nhật session_state dựa trên lựa chọn hiện tại
     st.session_state.selected_hotel_id = selected_hotel[1]
 
-    if st.session_state.selected_hotel_id:
-        st.write("Hotel_ID: ", st.session_state.selected_hotel_id)
-        # Hiển thị thông tin khách sạn được chọn
-        selected_hotel_info = df_hotels[df_hotels['Hotel_ID'] == st.session_state.selected_hotel_id]
+    # if st.session_state.selected_hotel_id:
+    #     st.write("Hotel_ID: ", st.session_state.selected_hotel_id)
+    #     # Hiển thị thông tin khách sạn được chọn
+    #     selected_hotel_info = df_hotels[df_hotels['Hotel_ID'] == st.session_state.selected_hotel_id]
 
-        if not selected_hotel_info.empty:
-            st.write('#### Bạn vừa chọn:')
-            st.write('### ', selected_hotel_info['Hotel_Name'].values[0])
+    #     if not selected_hotel_info.empty:
+    #         st.write('#### Bạn vừa chọn:')
+    #         st.write('### ', selected_hotel_info['Hotel_Name'].values[0])
 
-            hotel_description = selected_hotel_info['Hotel_Description'].values[0]
-            truncated_description = ' '.join(hotel_description.split()[:100])
-            st.write('##### Thông tin:')
-            st.write(truncated_description, '...')
+    #         hotel_description = selected_hotel_info['Hotel_Description'].values[0]
+    #         truncated_description = ' '.join(hotel_description.split()[:100])
+    #         st.write('##### Thông tin:')
+    #         st.write(truncated_description, '...')
 
-            st.write('##### Các khách sạn khác bạn cũng có thể quan tâm:')
-            recommendations = get_surprise_recommendations(df_hotels, st.session_state.selected_hotel_id, surprise_model_new, nums=5)
-            display_recommended_hotels(recommendations)
-        else:
-            st.write(f"Không tìm thấy khách sạn với ID: {st.session_state.selected_hotel_id}")
+    #         st.write('##### Các khách sạn khác bạn cũng có thể quan tâm:')
+    #         recommendations = get_surprise_recommendations(df_hotels, st.session_state.selected_hotel_id, surprise_model_new, nums=5)
+    #         display_recommended_hotels(recommendations)
+    #     else:
+    #         st.write(f"Không tìm thấy khách sạn với ID: {st.session_state.selected_hotel_id}")
